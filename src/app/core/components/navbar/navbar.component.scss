@@ -1,0 +1,33 @@
+.navbar {
+    padding-top: 0;
+
+    @media (min-width: 992px) {
+        height: 62px;
+    }
+
+    &-brand {
+        color: var(--light);
+        font-size: 1.4em;
+        font-weight: 800;
+    }
+
+    &-collapse {
+        margin-top: 6px;
+    }
+
+    .nav {
+        &-link {
+            background-color: var(--blue-dark-contrast);
+            color: var(--grey);
+            font-size: 1.2em;
+            font-weight: 400;
+            padding: 18px 40px;
+            text-align: center;
+
+            &.active {
+                background-color: var(--active);
+                color: var(--orange);
+            }
+        }
+    }
+}

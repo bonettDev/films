@@ -1,0 +1,29 @@
+<div *ngFor="let movie of movieList; index as i" class="card" [class.selected]="movie === selectedMovie"
+    (click)="handleSelectMovie(movie)">
+    <div class="media">
+        <img *ngIf="showMedia" src={{movie.image}} class="align-self-center mr-3" alt={{movie.title}}>
+        <div class="card-body">
+            <div *ngIf="showMedia" class="d-flex flex-column justify-content-start">
+                <h2 class="mt-0">{{movie.title}}</h2>
+                <small>Release Date: {{movie.release | dateFormat: 'DD MMMM YYYY'}}</small>
+                <p><strong>Movie Description:</strong> {{movie.description}}</p>
+            </div>
+            <div *ngIf="!showMedia" class="d-flex flex-row justify-content-between">
+                <h4>{{movie.title}}</h4>
+                <div class="d-flex flex-row justify-content-center">
+                    <a (click)="addToFavoriteMovie(movie)" class="icon--color"><i
+                            [ngClass]="(movie.isFavorite === false)?'fa fa-star-o':'fa fa-star'"></i></a>
+                </div>
+            </div>
+            <div *ngIf="!showMedia" class="d-flex flex-row justify-content-start">
+                <small>Release Date: {{movie.release | dateFormat: 'DD MMMM YYYY'}}</small>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex flex-row justify-content-center options">
+        <a (click)="handleEditMovie(movie)" class="icon--color"><i
+                class="fa fa-edit"></i></a>
+        <a (click)="handleRemoveMovie(movie)" class="icon--color"><i
+                class="fa fa-trash"></i></a>
+    </div>
+</div>
